@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 /* General Styles */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
 
 html {
@@ -22,6 +24,7 @@ body {
 
 h1 {
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 label {
@@ -33,33 +36,36 @@ label {
 
 input {
   border: 1px solid #eeeeee;
-  padding: 12px;
+  padding: 8px;
   outline: none;
 }
 
 button {
   cursor: pointer;
-  padding: 12px;
-  background: #7c5cbf;
+  padding: 10px;
+  margin-top: 16px;
+  background: #f40000;
   border: none;
-  color: white;
-  font-size: 16px;
+  color: #f5f3f4;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 24px;
   transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #6b47b8;
+  background: #fb3030;
 }
 
 button:disabled {
   cursor: default;
-  background: #7c5cbf94;
+  background: #fb3030;
 }
 
 /* Join Page Styles */
 
 .centered-form {
-  background: #333744;
+  background: #161a1d;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -93,8 +99,8 @@ button:disabled {
 .chat__sidebar {
   height: 100vh;
   color: white;
-  background: #333744;
-  width: 225px;
+  background: #161a1d;
+  width: 300px;
   overflow-y: scroll;
 }
 
@@ -150,29 +156,32 @@ button:disabled {
 }
 
 .compose input {
-  border: 1px solid #eeeeee;
+  border: 1px solid #d3d3d3;
   width: 100%;
   padding: 12px;
   margin: 0 16px 0 0;
+  border-radius: 24px;
   flex-grow: 1;
 }
 
 .compose button {
-  font-size: 14px;
+  font-size: 16px;
+  padding: 0 14px;
+  margin: 0;
 }
 
 /* Chat Sidebar Styles */
 
 .room-title {
-  font-weight: 400;
-  font-size: 22px;
-  background: #2c2f3a;
+  font-weight: 600;
+  font-size: 26px;
+  background: #e5383b;
   padding: 24px;
 }
 
 .list-title {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 4px;
   padding: 12px 24px 0 24px;
 }
@@ -180,5 +189,9 @@ button:disabled {
 .users {
   list-style-type: none;
   font-weight: 300;
-  padding: 12px 24px 0 24px;
+  padding: 6px 24px 0 48px;
+}
+
+.users li {
+  margin: 4px;
 }
