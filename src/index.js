@@ -31,6 +31,12 @@ io.on('connection', (socket) => {
         socket.emit('showMessage', generateMessage('Welcome!'))
         socket.broadcast.to(user.room).emit('showMessage', generateMessage(`${user.username} has joined the room!`))
 
+        // sidebar
+        io.to(user.room).emit('roomData', {
+            room: user.room,
+            users: getUsersInRoom(user.room)
+        })
+
         callback()
     })
     // sending messages
@@ -51,6 +57,12 @@ io.on('connection', (socket) => {
 
         if (user) {
             io.to(user.room).emit('showMessage', generateMessage(`${user.username} has left`))
+
+            // sidebar
+            io.to(user.room).emit('roomData', {
+                room: user.room,
+                users: getUsersInRoom(user.room)
+            })
         }
     })
     // Sending location
