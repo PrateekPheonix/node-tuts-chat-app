@@ -119,6 +119,29 @@ button:disabled {
   overflow-y: scroll;
 }
 
+/* Modal Styles */
+.modal {
+  background: pink;
+  width: max-content;
+  max-width: 35vw;
+  word-wrap: break-word;
+  border-radius: 8px;
+  margin: auto;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+}
+
+.modal__name {
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 16px;
+}
+
+.modal__meta {
+  color: rgb(66, 66, 66);
+  font-size: 12px;
+}
+
 /* Message Styles */
 
 .message {

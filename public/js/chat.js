@@ -11,6 +11,7 @@ const sidebar = document.querySelector('#sidebar')
 // Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const messageMeTemplate = document.querySelector('#message-me-template').innerHTML
+const modalTemplate = document.querySelector('#modal-template').innerHTML
 const locationTemplate = document.querySelector('#location-template').innerHTML
 const locationMeTemplate = document.querySelector('#location-me-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
@@ -50,6 +51,12 @@ socket.on('showMessage', (message) => {
         const html = Mustache.render(messageMeTemplate, {
             username: message.username,
             message: message.text,
+            createdAt: moment(message.createdAt).format('h:mm a'),
+        })
+        messages.insertAdjacentHTML('beforeend', html)
+    } else if (!message.text) {
+        const html = Mustache.render(modalTemplate, {
+            username: message.username,
             createdAt: moment(message.createdAt).format('h:mm a'),
         })
         messages.insertAdjacentHTML('beforeend', html)
