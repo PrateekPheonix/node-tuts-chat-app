@@ -187,7 +187,7 @@ button:disabled {
 }
 
 .message a {
-  color: #0070cc;
+  color: pink;
 }
 
 /* Message Me Styles */
@@ -229,7 +229,7 @@ button:disabled {
 }
 
 .message-me a {
-  color: #0070cc;
+  color: pink;
 }
 
 /* Message Composition Styles */
