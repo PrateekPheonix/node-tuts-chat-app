@@ -287,3 +287,79 @@ button:disabled {
 .users li {
   margin: 4px;
 }
+
+@media screen and (max-width: 480px) {
+  .centered-form__box {
+    width: 300px;
+    padding: 22px;
+  }
+  .centered-form__box h1 {
+    font-size: 28px;
+  }
+  .centered-form__box button {
+    font-size: 18px;
+    padding: 8px;
+    margin-top: 6px;
+  }
+  .chat__sidebar {
+    width: 110px;
+  }
+  .room-title {
+    font-size: 20px;
+    padding: 16px;
+  }
+  .list-title {
+    font-size: 18px;
+    padding: 12px 14px 0 10px;
+  }
+  .users {
+    font-size: 12px;
+    padding: 0 12px 0 20px;
+  }
+  .modal {
+    padding: 6px 10px;
+    max-width: 80vw;
+  }
+  .modal__name {
+    font-size: 12px;
+  }
+  .modal__meta {
+    font-size: 10px;
+  }
+  .message-me {
+    padding: 4px 8px 6px 8px;
+    max-width: 50vw;
+  }
+  .message__name {
+    font-size: 14px;
+  }
+  .message__meta {
+    font-size: 10px;
+  }
+  .message-me__main {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+  .message__main {
+    margin-top: 2px;
+    font-size: 14px;
+  }
+  .compose {
+    margin-top: 10px;
+    padding: 10px 6px;
+    height: 55px;
+  }
+  .compose form {
+    margin-right: 4px;
+  }
+  .compose button {
+    font-size: 10px;
+    padding: 0;
+  }
+  .compose input {
+    margin-right: 4px;
+  }
+  #message-form button {
+    padding: 0 10px;
+  }
+}
