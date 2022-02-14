@@ -10,7 +10,9 @@ const sidebar = document.querySelector('#sidebar')
 
 // Templates
 const messageTemplate = document.querySelector('#message-template').innerHTML
+const messageMeTemplate = document.querySelector('#message-me-template').innerHTML
 const locationTemplate = document.querySelector('#location-template').innerHTML
+const locationMeTemplate = document.querySelector('#location-me-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
 
 // Options
@@ -44,23 +46,41 @@ const autoscroll = () => {
 // Connections
 socket.on('showMessage', (message) => {
     console.log(message)
-    const html = Mustache.render(messageTemplate, {
-        username: message.username,
-        message: message.text,
-        createdAt: moment(message.createdAt).format('h:mm a')
-    })
-    messages.insertAdjacentHTML('beforeend', html)
+    if (socket.id === message.id) {
+        const html = Mustache.render(messageMeTemplate, {
+            username: message.username,
+            message: message.text,
+            createdAt: moment(message.createdAt).format('h:mm a'),
+        })
+        messages.insertAdjacentHTML('beforeend', html)
+    } else {
+        const html = Mustache.render(messageTemplate, {
+            username: message.username,
+            message: message.text,
+            createdAt: moment(message.createdAt).format('h:mm a'),
+        })
+        messages.insertAdjacentHTML('beforeend', html)
+    }
     autoscroll()
 })
 
 socket.on('showLocation', (message) => {
     console.log(message)
-    const html = Mustache.render(locationTemplate, {
-        username: message.username,
-        url: message.url,
-        createdAt: moment(message.createdAt).format('h:mm a')
-    })
-    messages.insertAdjacentHTML('beforeend', html)
+    if (socket.id === message.id) {
+        const html = Mustache.render(locationMeTemplate, {
+            username: message.username,
+            url: message.url,
+            createdAt: moment(message.createdAt).format('h:mm a')
+        })
+        messages.insertAdjacentHTML('beforeend', html)
+    } else {
+        const html = Mustache.render(locationTemplate, {
+            username: message.username,
+            url: message.url,
+            createdAt: moment(message.createdAt).format('h:mm a')
+        })
+        messages.insertAdjacentHTML('beforeend', html)
+    }
     autoscroll()
 })
 
