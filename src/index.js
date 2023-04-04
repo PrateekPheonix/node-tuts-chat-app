@@ -3,18 +3,28 @@ const http = require('http')
 const express = require('express');
 const path = require('path');
 const Filter = require('bad-words')
+const cors = require('cors')
+
 const { generateMessage, generateLocationMessage } = require('./Utils/messages')
 const { addUser, getUser, removeUser, getUsersInRoom } = require('./Utils/users')
 
 const app = express()
 const server = http.createServer(app)
-const io = socketio(server)
+const io = socketio(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+})
 
 const port = process.env.PORT || 3000
 
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath))
+app.use(cors({
+    " Access-Control-Allow-Origin": "*"
+}))
 
 io.on('connection', (socket) => {
     console.log('New WebSocket Connection')
